@@ -1,0 +1,24 @@
+{
+  "name": "gardening-tool-share-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for the community gardening tool sharing app",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test:e2e": "cucumber-js"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^10.8.0",
+    "@playwright/test": "^1.45.2",
+    "@vitejs/plugin-react": "^4.3.1",
+    "chai": "^5.1.1",
+    "playwright": "^1.45.2",
+    "vite": "^5.3.4"
+  }
+}
