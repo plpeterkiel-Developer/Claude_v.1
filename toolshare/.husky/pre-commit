@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 1. Run lint-staged (ESLint + Prettier on changed files)
+npx lint-staged
+
+# 2. Scan for accidentally committed secrets
+npx detect-secrets-hook --baseline .secrets.baseline
+
+# 3. Run affected unit tests
+npx jest --passWithNoTests --findRelatedTests $(git diff --cached --name-only | grep -E '\.(js|jsx)$' | tr '\n' ' ')
+
+# 4. Validate commit message format (via commit-msg hook)
