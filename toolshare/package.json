@@ -1,0 +1,38 @@
+{
+  "name": "toolshare",
+  "version": "1.0.0",
+  "description": "Neighbour-to-neighbour gardening tool sharing platform",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "test": "npm run test --workspace=backend",
+    "test:e2e": "npm run test:e2e --workspace=backend",
+    "lint": "eslint toolshare --ext .js,.jsx",
+    "format": "prettier --write \"toolshare/**/*.{js,jsx,json}\""
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.6.0",
+    "@commitlint/config-conventional": "^18.6.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^9.0.10",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.2.4"
+  },
+  "lint-staged": {
+    "toolshare/**/*.{js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "toolshare/**/*.{json,css}": [
+      "prettier --write"
+    ]
+  }
+}

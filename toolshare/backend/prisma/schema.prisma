@@ -1,0 +1,177 @@
+// ToolShare — Prisma Schema
+// Database: PostgreSQL
+// ORM: Prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────
+// Enums
+// ─────────────────────────────────────────────
+
+enum AuthProvider {
+  local
+  google
+  facebook
+}
+
+enum Language {
+  da
+  en
+}
+
+enum ToolCondition {
+  good
+  fair
+  worn
+}
+
+enum ToolStatus {
+  available
+  on_loan
+}
+
+enum RequestStatus {
+  pending
+  accepted
+  declined
+  returned
+  cancelled
+  overdue
+}
+
+enum ReportTargetType {
+  listing
+  review
+}
+
+enum ReportStatus {
+  pending
+  warned
+  removed
+  dismissed
+}
+
+// ─────────────────────────────────────────────
+// Models
+// ─────────────────────────────────────────────
+
+model User {
+  id                 String       @id @default(cuid())
+  name               String
+  email              String       @unique
+  passwordHash       String?      // null for OAuth-only accounts
+  authProvider       AuthProvider @default(local)
+  avatarUrl          String?
+  emailVerified      Boolean      @default(false)
+  verificationToken  String?      @unique
+  resetToken         String?      @unique
+  resetTokenExpiry   DateTime?
+  preferredLanguage  Language     @default(da)
+  warningCount       Int          @default(0)
+  isSuspended        Boolean      @default(false)
+  averageRating      Float?
+  createdAt          DateTime     @default(now())
+  updatedAt          DateTime     @updatedAt
+
+  // Relations
+  tools              Tool[]
+  borrowRequests     Request[]    @relation("BorrowerRequests")
+  reviewsGiven       Review[]     @relation("ReviewsGiven")
+  reviewsReceived    Review[]     @relation("ReviewsReceived")
+  reportsSubmitted   Report[]     @relation("ReporterReports")
+  reportsResolved    Report[]     @relation("ResolverReports")
+
+  @@map("users")
+}
+
+model Tool {
+  id                  String        @id @default(cuid())
+  ownerId             String
+  name                String
+  description         String
+  condition           ToolCondition
+  status              ToolStatus    @default(available)
+  photoUrl            String?
+  pickupPointAddress  String        // full address — only revealed after acceptance
+  pickupPointNote     String?       // e.g. "Ring the bell"
+  createdAt           DateTime      @default(now())
+  updatedAt           DateTime      @updatedAt
+
+  // Relations
+  owner               User          @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+  requests            Request[]
+  reports             Report[]      @relation("ListingReports")
+
+  @@map("tools")
+}
+
+model Request {
+  id          String        @id @default(cuid())
+  toolId      String
+  borrowerId  String
+  startDate   DateTime
+  endDate     DateTime
+  message     String?
+  status      RequestStatus @default(pending)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  // Relations
+  tool        Tool          @relation(fields: [toolId], references: [id], onDelete: Cascade)
+  borrower    User          @relation("BorrowerRequests", fields: [borrowerId], references: [id], onDelete: Cascade)
+  reviews     Review[]
+
+  @@map("requests")
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  reviewerId  String
+  revieweeId  String
+  requestId   String
+  rating      Int      // 1–5
+  comment     String?
+  isRemoved   Boolean  @default(false)
+  // When reviewer account is deleted, reviewerId is set to null and
+  // the display name is shown as "Account deleted"
+  reviewerDeleted Boolean @default(false)
+  createdAt   DateTime @default(now())
+
+  // Relations
+  reviewer    User     @relation("ReviewsGiven", fields: [reviewerId], references: [id], onDelete: Cascade)
+  reviewee    User     @relation("ReviewsReceived", fields: [revieweeId], references: [id], onDelete: Cascade)
+  request     Request  @relation(fields: [requestId], references: [id], onDelete: Cascade)
+  reports     Report[] @relation("ReviewReports")
+
+  // One review per reviewer per request
+  @@unique([reviewerId, requestId])
+  @@map("reviews")
+}
+
+model Report {
+  id           String           @id @default(cuid())
+  reporterId   String
+  targetType   ReportTargetType
+  targetId     String           // ID of the tool listing or review
+  reason       String
+  status       ReportStatus     @default(pending)
+  resolvedBy   String?
+  createdAt    DateTime         @default(now())
+  updatedAt    DateTime         @updatedAt
+
+  // Relations
+  reporter     User             @relation("ReporterReports", fields: [reporterId], references: [id], onDelete: Cascade)
+  resolver     User?            @relation("ResolverReports", fields: [resolvedBy], references: [id])
+  // Polymorphic: target is either a Tool listing or a Review
+  toolListing  Tool?            @relation("ListingReports", fields: [targetId], references: [id], map: "reports_listing_fk")
+  review       Review?          @relation("ReviewReports", fields: [targetId], references: [id], map: "reports_review_fk")
+
+  @@map("reports")
+}

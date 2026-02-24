@@ -1,0 +1,135 @@
+{
+  "app": {
+    "name": "ToolShare",
+    "tagline": "Del haveredskaber med naboer"
+  },
+  "nav": {
+    "browse": "Gennemse redskaber",
+    "addTool": "Tilføj redskab",
+    "dashboard": "Min side",
+    "login": "Log ind",
+    "register": "Opret konto",
+    "logout": "Log ud",
+    "language": "Sprog"
+  },
+  "home": {
+    "hero_title": "Del haveredskaber med dine naboer",
+    "hero_subtitle": "ToolShare gør det nemt at låne og udlåne haveredskaber i dit lokalområde — helt gratis.",
+    "cta_browse": "Se tilgængelige redskaber",
+    "cta_register": "Opret gratis konto",
+    "how_it_works": "Sådan virker det",
+    "step1_title": "List dine redskaber",
+    "step1_text": "Tilføj de redskaber du gerne vil dele med naboerne.",
+    "step2_title": "Find et redskab",
+    "step2_text": "Søg efter de redskaber du har brug for i dit nærområde.",
+    "step3_title": "Lån og returner",
+    "step3_text": "Send en forespørgsel, aftal en periode og lån redskabet."
+  },
+  "auth": {
+    "email": "E-mailadresse",
+    "password": "Adgangskode",
+    "name": "Fuldt navn",
+    "login": "Log ind",
+    "register": "Opret konto",
+    "logout": "Log ud",
+    "google": "Fortsæt med Google",
+    "facebook": "Fortsæt med Facebook",
+    "already_account": "Har du allerede en konto?",
+    "no_account": "Har du ikke en konto endnu?",
+    "verify_email_prompt": "Bekræft venligst din e-mailadresse, inden du fortsætter.",
+    "verification_sent": "En bekræftelses-e-mail er sendt til din adresse.",
+    "email_verified": "Din e-mailadresse er bekræftet.",
+    "invalid_credentials": "Ugyldig e-mail eller adgangskode.",
+    "password_requirements": "Mindst 8 tegn, ét stort bogstav og ét tal.",
+    "forgot_password": "Glemt adgangskode?"
+  },
+  "tools": {
+    "available": "Tilgængelig",
+    "on_loan": "Udlånt",
+    "condition_good": "God stand",
+    "condition_fair": "Rimelig stand",
+    "condition_worn": "Slidt",
+    "add_tool": "Tilføj redskab",
+    "edit_tool": "Rediger",
+    "delete_tool": "Slet",
+    "name_label": "Redskabsnavn",
+    "description_label": "Beskrivelse",
+    "condition_label": "Stand",
+    "pickup_address_label": "Afhentningsadresse",
+    "pickup_note_label": "Note til afhentning (valgfri)",
+    "photo_label": "Foto (valgfri)",
+    "no_tools": "Ingen redskaber fundet.",
+    "request_to_borrow": "Anmod om at låne",
+    "pickup_area": "Afhentningssted",
+    "pickup_address_hidden": "Den fulde adresse vises, når din forespørgsel er accepteret.",
+    "owner": "Ejer",
+    "search_placeholder": "Søg efter redskaber...",
+    "filter_available": "Kun tilgængelige",
+    "filter_street": "Filtrer på gade"
+  },
+  "requests": {
+    "send_request": "Send forespørgsel",
+    "start_date": "Startdato",
+    "end_date": "Slutdato",
+    "message_label": "Besked (valgfri)",
+    "cancel_request": "Annuller forespørgsel",
+    "accept": "Accepter",
+    "decline": "Afslå",
+    "mark_returned": "Markér som returneret",
+    "status_pending": "Afventer",
+    "status_accepted": "Accepteret",
+    "status_declined": "Afslået",
+    "status_returned": "Returneret",
+    "status_cancelled": "Annulleret",
+    "status_overdue": "Forfalden",
+    "my_requests": "Mine forespørgsler",
+    "incoming_requests": "Indgående forespørgsler"
+  },
+  "reviews": {
+    "leave_review": "Skriv en anmeldelse",
+    "rating_label": "Vurdering",
+    "comment_label": "Kommentar (valgfri)",
+    "submit_review": "Indsend anmeldelse",
+    "no_reviews": "Ingen anmeldelser endnu.",
+    "account_deleted": "Slettet konto",
+    "reviews_count": "{{count}} anmeldelse",
+    "reviews_count_plural": "{{count}} anmeldelser"
+  },
+  "reports": {
+    "report": "Anmeld",
+    "reason_label": "Begrundelse",
+    "submit_report": "Send anmeldelse",
+    "report_listing": "Anmeld opslag",
+    "report_review": "Anmeld anmeldelse",
+    "submitted": "Din anmeldelse er sendt og vil blive behandlet af en administrator."
+  },
+  "profile": {
+    "my_profile": "Min profil",
+    "edit_profile": "Rediger profil",
+    "language": "Foretrukket sprog",
+    "download_data": "Download mine data",
+    "delete_account": "Slet konto",
+    "delete_account_confirm": "Er du sikker? Denne handling kan ikke fortrydes. Dine redskaber slettes, og aktive forespørgsler annulleres.",
+    "my_tools": "Mine redskaber",
+    "member_since": "Medlem siden"
+  },
+  "errors": {
+    "generic": "Noget gik galt. Prøv igen.",
+    "not_found": "Siden findes ikke.",
+    "unauthorised": "Du skal være logget ind for at gøre dette.",
+    "email_not_verified": "Bekræft din e-mail for at fortsætte.",
+    "too_many_attempts": "For mange forsøg. Prøv igen om lidt.",
+    "try_again": "Prøv igen",
+    "go_home": "Gå til forsiden"
+  },
+  "accessibility": {
+    "skip_to_content": "Spring til indhold",
+    "close": "Luk",
+    "loading": "Indlæser...",
+    "star_rating": "{{count}} ud af 5 stjerner"
+  },
+  "gdpr": {
+    "data_download_sent": "En e-mail med et download-link er sendt til din adresse.",
+    "account_deleted": "Din konto er slettet."
+  }
+}

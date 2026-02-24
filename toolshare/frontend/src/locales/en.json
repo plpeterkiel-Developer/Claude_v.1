@@ -1,0 +1,135 @@
+{
+  "app": {
+    "name": "ToolShare",
+    "tagline": "Share gardening tools with neighbours"
+  },
+  "nav": {
+    "browse": "Browse tools",
+    "addTool": "Add a tool",
+    "dashboard": "My dashboard",
+    "login": "Log in",
+    "register": "Create account",
+    "logout": "Log out",
+    "language": "Language"
+  },
+  "home": {
+    "hero_title": "Share gardening tools with your neighbours",
+    "hero_subtitle": "ToolShare makes it easy to borrow and lend gardening tools in your local area — completely free.",
+    "cta_browse": "Browse available tools",
+    "cta_register": "Create a free account",
+    "how_it_works": "How it works",
+    "step1_title": "List your tools",
+    "step1_text": "Add the tools you are happy to share with your neighbours.",
+    "step2_title": "Find a tool",
+    "step2_text": "Search for the tools you need nearby.",
+    "step3_title": "Borrow and return",
+    "step3_text": "Send a request, agree on dates, and borrow the tool."
+  },
+  "auth": {
+    "email": "Email address",
+    "password": "Password",
+    "name": "Full name",
+    "login": "Log in",
+    "register": "Create account",
+    "logout": "Log out",
+    "google": "Continue with Google",
+    "facebook": "Continue with Facebook",
+    "already_account": "Already have an account?",
+    "no_account": "Don't have an account yet?",
+    "verify_email_prompt": "Please verify your email address before continuing.",
+    "verification_sent": "A verification email has been sent to your address.",
+    "email_verified": "Your email address has been verified.",
+    "invalid_credentials": "Invalid email or password.",
+    "password_requirements": "At least 8 characters, one uppercase letter, and one number.",
+    "forgot_password": "Forgot password?"
+  },
+  "tools": {
+    "available": "Available",
+    "on_loan": "On loan",
+    "condition_good": "Good",
+    "condition_fair": "Fair",
+    "condition_worn": "Worn",
+    "add_tool": "Add tool",
+    "edit_tool": "Edit",
+    "delete_tool": "Delete",
+    "name_label": "Tool name",
+    "description_label": "Description",
+    "condition_label": "Condition",
+    "pickup_address_label": "Pick-up address",
+    "pickup_note_label": "Pick-up note (optional)",
+    "photo_label": "Photo (optional)",
+    "no_tools": "No tools found.",
+    "request_to_borrow": "Request to borrow",
+    "pickup_area": "Pick-up area",
+    "pickup_address_hidden": "The full address will be shown once your request is accepted.",
+    "owner": "Owner",
+    "search_placeholder": "Search tools...",
+    "filter_available": "Available now only",
+    "filter_street": "Filter by street"
+  },
+  "requests": {
+    "send_request": "Send request",
+    "start_date": "Start date",
+    "end_date": "End date",
+    "message_label": "Message (optional)",
+    "cancel_request": "Cancel request",
+    "accept": "Accept",
+    "decline": "Decline",
+    "mark_returned": "Mark as returned",
+    "status_pending": "Pending",
+    "status_accepted": "Accepted",
+    "status_declined": "Declined",
+    "status_returned": "Returned",
+    "status_cancelled": "Cancelled",
+    "status_overdue": "Overdue",
+    "my_requests": "My requests",
+    "incoming_requests": "Incoming requests"
+  },
+  "reviews": {
+    "leave_review": "Leave a review",
+    "rating_label": "Rating",
+    "comment_label": "Comment (optional)",
+    "submit_review": "Submit review",
+    "no_reviews": "No reviews yet.",
+    "account_deleted": "Account deleted",
+    "reviews_count": "{{count}} review",
+    "reviews_count_plural": "{{count}} reviews"
+  },
+  "reports": {
+    "report": "Report",
+    "reason_label": "Reason",
+    "submit_report": "Submit report",
+    "report_listing": "Report listing",
+    "report_review": "Report review",
+    "submitted": "Your report has been submitted and will be reviewed by an admin."
+  },
+  "profile": {
+    "my_profile": "My profile",
+    "edit_profile": "Edit profile",
+    "language": "Preferred language",
+    "download_data": "Download my data",
+    "delete_account": "Delete account",
+    "delete_account_confirm": "Are you sure? This cannot be undone. Your tools will be removed and active requests cancelled.",
+    "my_tools": "My tools",
+    "member_since": "Member since"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "not_found": "Page not found.",
+    "unauthorised": "You need to be logged in to do this.",
+    "email_not_verified": "Please verify your email to continue.",
+    "too_many_attempts": "Too many attempts. Please try again shortly.",
+    "try_again": "Try again",
+    "go_home": "Go to homepage"
+  },
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "close": "Close",
+    "loading": "Loading...",
+    "star_rating": "{{count}} out of 5 stars"
+  },
+  "gdpr": {
+    "data_download_sent": "An email with a download link has been sent to your address.",
+    "account_deleted": "Your account has been deleted."
+  }
+}
