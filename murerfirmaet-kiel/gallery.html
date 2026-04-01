@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galleri | Murerfirmaet Kiel — Se vores arbejde</title>
+  <meta name="description" content="Se billeder af vores seneste projekter — badeværelser, køkkener, gulve og murerarbejde i Storkøbenhavn.">
+
+  <link rel="canonical" href="https://murerfirmaet-kiel.dk/gallery.html">
+  <link rel="alternate" hreflang="da" href="https://murerfirmaet-kiel.dk/gallery.html">
+  <link rel="alternate" hreflang="en" href="https://murerfirmaet-kiel.dk/gallery.html?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://murerfirmaet-kiel.dk/gallery.html">
+
+  <meta property="og:title" content="Galleri | Murerfirmaet Kiel">
+  <meta property="og:description" content="Se billeder af vores seneste projekter i Storkøbenhavn.">
+  <meta property="og:url" content="https://murerfirmaet-kiel.dk/gallery.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="da_DK">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "Murerfirmaet Kiel",
+    "url": "https://murerfirmaet-kiel.dk",
+    "telephone": "+45-XX-XX-XX-XX",
+    "address": { "@type": "PostalAddress", "addressLocality": "København", "addressRegion": "Hovedstaden", "addressCountry": "DK" },
+    "areaServed": { "@type": "GeoCircle", "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 55.6761, "longitude": 12.5683 }, "geoRadius": "40000" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip-link" data-i18n="a11y.skip">Spring til indhold</a>
+
+  <!-- HEADER START -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">Murerfirmaet <span>Kiel</span></a>
+      <nav aria-label="Hovednavigation">
+        <ul class="nav-list">
+          <li><a href="index.html" data-i18n="nav.home">Forside</a></li>
+          <li><a href="services.html" data-i18n="nav.services">Ydelser</a></li>
+          <li><a href="about.html" data-i18n="nav.about">Om os</a></li>
+          <li><a href="gallery.html" class="active" data-i18n="nav.gallery">Galleri</a></li>
+          <li><a href="contact.html" class="btn-nav" data-i18n="nav.contact">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div class="header-controls">
+        <button class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
+        <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav-panel">
+      <ul class="mobile-nav-list">
+        <li><a href="index.html" data-i18n="nav.home">Forside</a></li>
+        <li><a href="services.html" data-i18n="nav.services">Ydelser</a></li>
+        <li><a href="about.html" data-i18n="nav.about">Om os</a></li>
+        <li><a href="gallery.html" data-i18n="nav.gallery">Galleri</a></li>
+        <li><a href="contact.html" data-i18n="nav.contact">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- HEADER END -->
+
+  <main id="main">
+    <!-- Page hero -->
+    <section class="page-hero">
+      <div class="container">
+        <h1 data-i18n="gallery.hero.title">Galleri</h1>
+        <span class="gold-line"></span>
+        <p data-i18n="gallery.hero.subtitle">Se et udvalg af vores seneste projekter</p>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section>
+      <div class="container">
+        <!-- Filters -->
+        <div class="gallery-filters">
+          <button class="filter-btn active" data-filter="all" data-i18n="gallery.filter.all">Alle</button>
+          <button class="filter-btn" data-filter="bathroom" data-i18n="gallery.filter.bathroom">Badeværelse</button>
+          <button class="filter-btn" data-filter="kitchen" data-i18n="gallery.filter.kitchen">Køkken</button>
+          <button class="filter-btn" data-filter="floor" data-i18n="gallery.filter.floor">Gulv</button>
+          <button class="filter-btn" data-filter="masonry" data-i18n="gallery.filter.masonry">Murerarbejde</button>
+        </div>
+
+        <!-- Gallery grid — replace placeholder images with real project photos -->
+        <div class="gallery-grid" id="gallery-grid">
+          <div class="gallery-item" data-category="bathroom">
+            <img src="img/gallery/thumbs/bath-01.jpg" alt="Moderne badeværelse med store hvide fliser" loading="lazy" data-full="img/gallery/full/bath-01.jpg">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" data-category="bathroom">
+            <img src="img/gallery/thumbs/bath-02.jpg" alt="Badeværelse med mosaik bruseniche" loading="lazy" data-full="img/gallery/full/bath-02.jpg">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" data-category="bathroom">
+            <img src="img/gallery/thumbs/bath-03.jpg" alt="Minimalistisk badeværelse med natursten" loading="lazy" data-full="img/gallery/full/bath-03.jpg">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" data-category="kitchen">
+            <img src="img/gallery/thumbs/kitchen-01.jpg" alt="Køkken stænkplade i herringbone mønster" loading="lazy" data-full="img/gallery/full/kitchen-01.jpg">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" data-category="kitchen">
+            <img src="img/gallery/thumbs/kitchen-02.jpg" alt="Moderne køkken med subway fliser" loading="lazy" data-full="img/gallery/full/kitchen-02.jpg">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" data-category="floor">
+            <img src="img/gallery/thumbs/floor-01.jpg" alt="Stort format gulvfliser i stue" loading="lazy" data-full="img/gallery/full/floor-01.jpg">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" data-category="floor">
+            <img src="img/gallery/thumbs/floor-02.jpg" alt="Natursten gulv i entre" loading="lazy" data-full="img/gallery/full/floor-02.jpg">
+            <div class="gallery-item-overlay"></div>
+          </div>
+          <div class="gallery-item" data-category="masonry">
+            <img src="img/gallery/thumbs/masonry-01.jpg" alt="Facaderenovering med ny puds" loading="lazy" data-full="img/gallery/full/masonry-01.jpg">
+            <div class="gallery-item-overlay"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-banner">
+      <div class="container">
+        <h2 data-i18n="home.cta.title">Klar til at starte dit projekt?</h2>
+        <p data-i18n="home.cta.subtitle">Kontakt os i dag for en uforpligtende snak om dine ønsker og behov.</p>
+        <a href="contact.html" class="btn btn-primary" data-i18n="home.cta.button">Kontakt os</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER START -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo">Murerfirmaet <span>Kiel</span></span>
+          <p data-i18n="footer.tagline">Professionel flise- og murerarbejde i Storkøbenhavn. Kvalitet, pålidelighed og håndværk du kan stole på.</p>
+        </div>
+        <div class="footer-links">
+          <h4 data-i18n="footer.nav">Navigation</h4>
+          <a href="index.html" data-i18n="nav.home">Forside</a>
+          <a href="services.html" data-i18n="nav.services">Ydelser</a>
+          <a href="about.html" data-i18n="nav.about">Om os</a>
+          <a href="gallery.html" data-i18n="nav.gallery">Galleri</a>
+          <a href="contact.html" data-i18n="nav.contact">Kontakt</a>
+        </div>
+        <div class="footer-contact">
+          <h4 data-i18n="footer.contactTitle">Kontakt</h4>
+          <p><a href="tel:+45XXXXXXXX">+45 XX XX XX XX</a></p>
+          <p><a href="mailto:info@murerfirmaet-kiel.dk">info@murerfirmaet-kiel.dk</a></p>
+          <p data-i18n="footer.area">Storkøbenhavn</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Murerfirmaet Kiel. <span data-i18n="footer.rights">Alle rettigheder forbeholdes.</span></p>
+      </div>
+    </div>
+  </footer>
+  <!-- FOOTER END -->
+
+  <script src="js/i18n.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

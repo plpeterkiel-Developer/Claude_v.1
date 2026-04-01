@@ -1,0 +1,55 @@
+/* ============================================
+   Design Tokens — Murerfirmaet Kiel
+   ============================================ */
+
+:root {
+  /* Primary palette: warm, sophisticated neutrals */
+  --color-charcoal: #2C2C2C;
+  --color-warm-gray: #6B6560;
+  --color-taupe: #B8AFA6;
+  --color-cream: #F5F0EB;
+  --color-white: #FFFFFF;
+
+  /* Accent: muted gold for luxury feel */
+  --color-gold: #C4A265;
+  --color-gold-dark: #A8894F;
+
+  /* Functional */
+  --color-success: #5A7A5A;
+  --color-error: #A65050;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+
+  /* Fluid type scale */
+  --fs-hero: clamp(2.5rem, 5vw, 4.5rem);
+  --fs-h1: clamp(2rem, 4vw, 3rem);
+  --fs-h2: clamp(1.5rem, 3vw, 2.25rem);
+  --fs-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --fs-xs: 0.75rem;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+  --space-2xl: 8rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-h: 80px;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+}
