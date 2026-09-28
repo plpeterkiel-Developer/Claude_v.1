@@ -1,0 +1,5 @@
+# archify check receipts (regenerated on each run)
+.archify/**/*.browser-check.json
+.archify/**/*.delivery.json
+.archify/**/*.finalize.json
+.archify/**/*.finalize-summary.json
