@@ -1,0 +1,404 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "R&D Data Classification, Access Assurance & Compliance Decision Workflow",
+    "quality_profile": "showcase",
+    "output": ".archify/workflow-rd-governance-20260928-120000/rd-governance.html",
+    "legend": {
+      "entries": {
+        "frontend": {
+          "label": "Intake questions"
+        },
+        "backend": {
+          "label": "Automated rule step"
+        },
+        "security": {
+          "label": "Gate / stop"
+        },
+        "messagebus": {
+          "label": "Tasks & triggers"
+        },
+        "database": {
+          "label": "Records & data"
+        },
+        "external": {
+          "label": "People (human decision)"
+        }
+      }
+    }
+  },
+  "lanes": [
+    {
+      "id": "intake",
+      "label": "Adaptive intake"
+    },
+    {
+      "id": "engine",
+      "label": "Policy-as-code engine"
+    },
+    {
+      "id": "controls",
+      "label": "Controls, evidence & reviews"
+    },
+    {
+      "id": "decision",
+      "label": "Decision & outputs"
+    }
+  ],
+  "phases": [
+    {
+      "id": "p_intake",
+      "label": "Collect facts",
+      "fromCol": 0,
+      "toCol": 2
+    },
+    {
+      "id": "p_assess",
+      "label": "Tier, gate, derive",
+      "fromCol": 3,
+      "toCol": 4,
+      "variant": "security"
+    },
+    {
+      "id": "p_decide",
+      "label": "Review + decide",
+      "fromCol": 5,
+      "toCol": 5,
+      "variant": "emphasis"
+    }
+  ],
+  "groups": [],
+  "mainPath": [
+    "requester",
+    "core_q",
+    "modules",
+    "normalize",
+    "tiers",
+    "hard_stops",
+    "risk_app",
+    "reviews",
+    "decision"
+  ],
+  "nodes": [
+    {
+      "id": "requester",
+      "lane": "intake",
+      "col": 0,
+      "type": "external",
+      "label": "Project owner",
+      "sublabel": "starts assessment",
+      "icon": "person",
+      "width": 140
+    },
+    {
+      "id": "core_q",
+      "lane": "intake",
+      "col": 1,
+      "type": "frontend",
+      "label": "15 core questions",
+      "sublabel": "Q-001 to Q-015",
+      "tag": "unknown ≠ no",
+      "width": 140
+    },
+    {
+      "id": "modules",
+      "lane": "intake",
+      "col": 2,
+      "type": "frontend",
+      "label": "Triggered modules",
+      "sublabel": "privacy, AI, GxP…",
+      "tag": "progressive disclosure",
+      "width": 140
+    },
+    {
+      "id": "auth_data",
+      "lane": "engine",
+      "col": 1,
+      "type": "database",
+      "label": "Authoritative data",
+      "sublabel": "owners, classes",
+      "width": 140
+    },
+    {
+      "id": "normalize",
+      "lane": "engine",
+      "col": 2,
+      "type": "backend",
+      "label": "Validate + normalise",
+      "sublabel": "keep UNKNOWN",
+      "width": 140
+    },
+    {
+      "id": "tiers",
+      "lane": "engine",
+      "col": 3,
+      "type": "backend",
+      "label": "Calculate tiers",
+      "sublabel": "S1–4 · C0–3 · A1–4",
+      "width": 140
+    },
+    {
+      "id": "hard_stops",
+      "lane": "engine",
+      "col": 4,
+      "type": "security",
+      "label": "Hard-stop rules",
+      "sublabel": "HS-001 to HS-012",
+      "width": 140
+    },
+    {
+      "id": "risk_app",
+      "lane": "engine",
+      "col": 5,
+      "type": "security",
+      "label": "Risk appetite",
+      "sublabel": "RA-001 to RA-012",
+      "tag": "monitoring mode",
+      "width": 140
+    },
+    {
+      "id": "blocked",
+      "lane": "intake",
+      "col": 4,
+      "type": "security",
+      "label": "BLOCKED",
+      "sublabel": "fix or approved exception",
+      "icon": "failure",
+      "width": 140
+    },
+    {
+      "id": "bundles",
+      "lane": "controls",
+      "col": 3,
+      "type": "backend",
+      "label": "Control bundles",
+      "sublabel": "baseline + context",
+      "width": 140
+    },
+    {
+      "id": "evidence",
+      "lane": "controls",
+      "col": 4,
+      "type": "backend",
+      "label": "Required evidence",
+      "sublabel": "per stage gate",
+      "width": 140
+    },
+    {
+      "id": "reviews",
+      "lane": "controls",
+      "col": 5,
+      "type": "external",
+      "label": "Specialist reviews",
+      "sublabel": "Privacy, QA, Cyber…",
+      "tag": "human sign-off",
+      "icon": "person",
+      "width": 140
+    },
+    {
+      "id": "decision",
+      "lane": "decision",
+      "col": 5,
+      "type": "backend",
+      "label": "Decision status",
+      "sublabel": "precedence order",
+      "tag": "worst result wins",
+      "width": 140
+    },
+    {
+      "id": "reassess",
+      "lane": "decision",
+      "col": 2,
+      "type": "messagebus",
+      "label": "Reassessment",
+      "sublabel": "re-opens intake",
+      "icon": "clock",
+      "width": 140
+    },
+    {
+      "id": "audit",
+      "lane": "decision",
+      "col": 3,
+      "type": "database",
+      "label": "Audit record",
+      "sublabel": "immutable record",
+      "width": 140
+    },
+    {
+      "id": "tasks",
+      "lane": "decision",
+      "col": 4,
+      "type": "messagebus",
+      "label": "Workflow tasks",
+      "sublabel": "reviews, evidence",
+      "width": 140
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_start",
+      "from": "requester",
+      "to": "core_q"
+    },
+    {
+      "id": "e_trigger",
+      "from": "core_q",
+      "to": "modules",
+      "label": "YES / UNKNOWN",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e_facts",
+      "from": "modules",
+      "to": "normalize",
+      "label": "facts",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight"
+    },
+    {
+      "id": "e_reuse",
+      "from": "auth_data",
+      "to": "normalize",
+      "label": "reuse",
+      "variant": "dashed"
+    },
+    {
+      "id": "e_tier",
+      "from": "normalize",
+      "to": "tiers",
+      "fromSide": "right",
+      "toSide": "left",
+      "route": "straight"
+    },
+    {
+      "id": "e_hs",
+      "from": "tiers",
+      "to": "hard_stops"
+    },
+    {
+      "id": "e_blocked",
+      "from": "hard_stops",
+      "to": "blocked",
+      "label": "any hit",
+      "variant": "security",
+      "role": "error"
+    },
+    {
+      "id": "e_pass",
+      "from": "hard_stops",
+      "to": "risk_app",
+      "label": "pass",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e_route",
+      "from": "risk_app",
+      "to": "reviews",
+      "label": "route reviews"
+    },
+    {
+      "id": "e_bundles",
+      "from": "tiers",
+      "to": "bundles",
+      "variant": "dashed",
+      "role": "branch",
+      "fromSide": "bottom",
+      "toSide": "top",
+      "route": "straight",
+      "label": "select"
+    },
+    {
+      "id": "e_evidence",
+      "from": "bundles",
+      "to": "evidence",
+      "variant": "dashed",
+      "role": "branch"
+    },
+    {
+      "id": "e_ev_dec",
+      "from": "evidence",
+      "to": "decision",
+      "label": "accepted?",
+      "variant": "dashed",
+      "role": "branch"
+    },
+    {
+      "id": "e_decide",
+      "from": "reviews",
+      "to": "decision",
+      "label": "approve / reject",
+      "variant": "emphasis"
+    },
+    {
+      "id": "e_tasks",
+      "from": "decision",
+      "to": "tasks"
+    },
+    {
+      "id": "e_audit",
+      "from": "tasks",
+      "to": "audit",
+      "label": "record",
+      "role": "branch"
+    },
+    {
+      "id": "e_loop",
+      "from": "audit",
+      "to": "reassess",
+      "label": "on change",
+      "variant": "dashed",
+      "role": "async"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "rose",
+      "title": "Decision precedence (worst wins)",
+      "items": [
+        "1 BLOCKED: any hard stop",
+        "2 REVIEW_REQUIRED: pending review or material unknown",
+        "3 CONDITIONAL_PROCEED: conditions outstanding",
+        "4 FAST_TRACK: S1 + C0 + A1, complete inputs, evidence accepted",
+        "5 APPROVED: all reviews approved, evidence accepted"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "S / C / A tiers",
+      "items": [
+        "Security S1–S4: classification, sensitive data, privilege, external, AI actions",
+        "Compliance C0–C3: personal data, GxP, patient safety, NIS2, AI approval",
+        "Access A1–A4: A3/A4 need expiry, Data Owner approval, quarterly review"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Authority boundaries",
+      "items": [
+        "Engine may: collect facts, calculate tiers, pick controls, route reviews",
+        "Engine must not: approve Strictly Confidential, high-risk access, exceptions or regulated release",
+        "UNKNOWN is never treated as NO"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Adaptive intake targets",
+      "items": [
+        "80% of assessments ≤ 15 questions, 95% ≤ 30",
+        "Low-risk internal 10–15 · AI + regulated + supplier 40–60",
+        "Modules: Privacy, External/Supplier, Privileged, Restricted, Quality/Regulatory, AI, Development, Architecture"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Stage gates",
+      "items": [
+        "Concept → Architecture → Development → Validation",
+        "Production onboarding: all blockers closed, approvals, expiry, monitoring",
+        "Operate → Retirement: access removed, identities retired"
+      ]
+    }
+  ]
+}
