@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "diagram_type": "dataflow",
+  "meta": {
+    "title": "R&D Governance Assessment → Decision Schema (v2.0)",
+    "output": ".archify/dataflow-rd-governance-schema-20260928-120000/rd-governance-schema.html",
+    "quality_profile": "showcase",
+    "viewBox": [
+      940,
+      604
+    ],
+    "legend": {
+      "entries": {
+        "emphasis": {
+          "label": "main decision path"
+        },
+        "security": {
+          "label": "blocking path"
+        },
+        "dashed": {
+          "label": "trigger / trace"
+        },
+        "default": {
+          "label": "informs"
+        },
+        "database": {
+          "label": "record section"
+        }
+      }
+    }
+  },
+  "stages": [
+    {
+      "label": "Assessment: core intake"
+    },
+    {
+      "label": "Assessment: modules & trace"
+    },
+    {
+      "label": "Decision: risk & scope"
+    },
+    {
+      "label": "Decision: outcome"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "project",
+      "type": "frontend",
+      "label": "project",
+      "sublabel": "name, purpose, lifecycle",
+      "stage": 0,
+      "row": 0,
+      "tag": "required"
+    },
+    {
+      "id": "owners",
+      "type": "frontend",
+      "label": "owners",
+      "sublabel": "business + system owner",
+      "stage": 0,
+      "row": 1,
+      "tag": "required"
+    },
+    {
+      "id": "dataAssurance",
+      "type": "database",
+      "label": "dataAssurance",
+      "sublabel": "classification, PII, CIA",
+      "stage": 0,
+      "row": 2,
+      "tag": "required"
+    },
+    {
+      "id": "accessAssurance",
+      "type": "security",
+      "label": "accessAssurance",
+      "sublabel": "identities, scope, actions",
+      "stage": 0,
+      "row": 3,
+      "tag": "required"
+    },
+    {
+      "id": "compliance",
+      "type": "backend",
+      "label": "complianceAssurance",
+      "sublabel": "GxP, FDA, device, NIS2",
+      "stage": 1,
+      "row": 0,
+      "tag": "module"
+    },
+    {
+      "id": "solution",
+      "type": "cloud",
+      "label": "solutionContext",
+      "sublabel": "supplier, hosting, APIs",
+      "stage": 1,
+      "row": 1,
+      "tag": "module"
+    },
+    {
+      "id": "aiDev",
+      "type": "backend",
+      "label": "aiAndDevelopment",
+      "sublabel": "AI use, tests, findings",
+      "stage": 1,
+      "row": 2,
+      "tag": "module"
+    },
+    {
+      "id": "intakeTrace",
+      "type": "messagebus",
+      "label": "intakeTrace",
+      "sublabel": "Q-### / M-* trace",
+      "stage": 1,
+      "row": 3,
+      "tag": "provenance"
+    },
+    {
+      "id": "risk",
+      "type": "security",
+      "label": "risk tiers",
+      "sublabel": "S · C · A tiers + hardStop",
+      "stage": 2,
+      "row": 0,
+      "tag": "ruleset 2.0.x"
+    },
+    {
+      "id": "applicability",
+      "type": "backend",
+      "label": "applicability",
+      "sublabel": "+ controlBundles",
+      "stage": 2,
+      "row": 1,
+      "tag": "per regulation"
+    },
+    {
+      "id": "accessDecision",
+      "type": "security",
+      "label": "access decision",
+      "sublabel": "tier, expiry, review freq.",
+      "stage": 2,
+      "row": 2,
+      "tag": "approvalStatus"
+    },
+    {
+      "id": "status",
+      "type": "frontend",
+      "label": "status",
+      "sublabel": "DRAFT → APPROVED/BLOCKED",
+      "stage": 3,
+      "row": 0,
+      "tag": "+ rationale"
+    },
+    {
+      "id": "reviews",
+      "type": "backend",
+      "label": "reviews & evidence",
+      "sublabel": "requiredReviews/Evidence",
+      "stage": 3,
+      "row": 1,
+      "tag": "lists"
+    },
+    {
+      "id": "conditions",
+      "type": "backend",
+      "label": "conditions",
+      "sublabel": "blockers, risk appetite",
+      "stage": 3,
+      "row": 2,
+      "tag": "+ reassessment"
+    },
+    {
+      "id": "audit",
+      "type": "database",
+      "label": "audit",
+      "sublabel": "hash, rules, approvals",
+      "stage": 3,
+      "row": 3,
+      "tag": "immutable log"
+    }
+  ],
+  "flows": [
+    {
+      "id": "project-compliance",
+      "from": "project",
+      "to": "compliance",
+      "label": "triggers",
+      "variant": "dashed"
+    },
+    {
+      "id": "owners-solution",
+      "from": "owners",
+      "to": "solution",
+      "label": "triggers",
+      "variant": "dashed"
+    },
+    {
+      "id": "data-ai",
+      "from": "dataAssurance",
+      "to": "aiDev",
+      "label": "triggers",
+      "variant": "dashed"
+    },
+    {
+      "id": "access-trace",
+      "from": "accessAssurance",
+      "to": "intakeTrace",
+      "label": "logged",
+      "variant": "dashed"
+    },
+    {
+      "id": "compliance-risk",
+      "from": "compliance",
+      "to": "risk",
+      "label": "C-tier",
+      "variant": "emphasis"
+    },
+    {
+      "id": "solution-applicability",
+      "from": "solution",
+      "to": "applicability",
+      "label": "scope facts",
+      "variant": "default"
+    },
+    {
+      "id": "ai-access",
+      "from": "aiDev",
+      "to": "accessDecision",
+      "label": "AI actions",
+      "variant": "default"
+    },
+    {
+      "id": "trace-audit",
+      "from": "intakeTrace",
+      "to": "audit",
+      "label": "answers hashed",
+      "variant": "dashed"
+    },
+    {
+      "id": "risk-status",
+      "from": "risk",
+      "to": "status",
+      "label": "hardStop",
+      "variant": "security"
+    },
+    {
+      "id": "applicability-reviews",
+      "from": "applicability",
+      "to": "reviews",
+      "label": "controls",
+      "variant": "emphasis"
+    },
+    {
+      "id": "access-conditions",
+      "from": "accessDecision",
+      "to": "conditions",
+      "label": "conditions",
+      "variant": "default"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Two halves: assessment → decision",
+      "items": [
+        "The document has exactly two required parts: 'assessment' (the answers) and 'decision' (the verdict)",
+        "Assessment = core intake always asked (project, owners, data, access) plus triggered modules",
+        "intakeTrace records which Q-### questions were answered and which M-* modules fired"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Shared building blocks ($defs)",
+      "items": [
+        "answer: YES / NO / POTENTIAL / UNKNOWN / NOT_APPLICABLE, reused by most questions",
+        "identity: id + displayName (+ email), used for owners, reviews, evidence and audit",
+        "review, evidence and riskAppetiteResult define the items in the decision lists"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Decision outcome",
+      "items": [
+        "Risk is scored on three axes: security S1–S4, compliance C0–C3, access A1–A4, plus a hardStop flag",
+        "status ranges from DRAFT and FAST_TRACK through CONDITIONAL_PROCEED and BLOCKED to APPROVED or RETIRED",
+        "audit keeps a SHA-256 answersHash, applied rules, human approvals, overrides and change history"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Reading the arrows",
+      "items": [
+        "The schema defines structure only; it does not contain the scoring rules",
+        "Solid arrows show which inputs logically inform which decision fields",
+        "Dashed arrows: core answers trigger optional modules, and every answer is logged in intakeTrace and hashed into audit. Which answer triggers which module is not specified in the schema"
+      ]
+    }
+  ]
+}
