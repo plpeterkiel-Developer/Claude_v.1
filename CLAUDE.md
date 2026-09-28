@@ -17,6 +17,9 @@ This file provides guidance for AI assistants (Claude Code and similar tools) wo
 
 ```
 Claude_v.1/
+├── .agents/skills/archify/  # "archify" diagram skill (installed via `npx skills add`)
+├── .claude/skills/archify   # Symlink so Claude Code discovers the skill
+├── skills-lock.json         # Records installed skills' source and content hash
 ├── CLAUDE.md        # AI assistant guidance (this file)
 └── README.md        # Project overview
 ```
