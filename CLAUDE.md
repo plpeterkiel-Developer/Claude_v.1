@@ -19,6 +19,8 @@ This file provides guidance for AI assistants (Claude Code and similar tools) wo
 Claude_v.1/
 ├── .agents/skills/archify/  # "archify" diagram skill (installed via `npx skills add`)
 ├── .claude/skills/archify   # Symlink so Claude Code discovers the skill
+├── murerfirmaet-kiel/       # First version of the tiling company website (static HTML)
+├── murerfirmaet-kiel-v2/    # Redesigned "Atelier" version with interactive elements (static HTML, run with `python3 -m http.server`)
 ├── skills-lock.json         # Records installed skills' source and content hash
 ├── CLAUDE.md        # AI assistant guidance (this file)
 └── README.md        # Project overview
